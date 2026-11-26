@@ -1,0 +1,4 @@
+sku,name,category,quantity,unit_price,reorder_level,location
+USBC-001,USB-C cable,cables,40,6.50,10,Shelf A2
+MUG-BLK-01,Black mug,kitchen,4,4.00,5,Shelf C1
+HDMI-002,HDMI cable 2m,cables,15,9.99,8,Shelf A3
