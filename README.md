@@ -11,6 +11,30 @@ Manage a small business's inventory in plain English. An AI agent built with Lan
 - **Low-stock report** with suggested order quantities
 - **History** of every stock change, with timestamp and reason
 - **CSV import and export**, with row-level validation
+- **Lean / Six Sigma tab:** statistical reorder points, demand control charts, a Pareto chart of count errors, dead stock, inventory turns and stockout days
+
+## Lean / Six Sigma
+
+The movement log already records every sale, receipt and count correction, so the app can measure waste and variation without extra data entry.
+
+| Metric | Method | What it tells you |
+|---|---|---|
+| Reorder point | avg daily demand × lead time + safety stock, where safety stock = z × σ(daily demand) × √lead time | When to reorder (Lean pull / Kanban), set from real demand instead of a guess |
+| Demand control chart | Individuals (I) chart, limits = mean ± 3σ with σ = average moving range ÷ 1.128 | Whether a spike is normal noise or a special cause worth investigating |
+| Count errors per 100 moves | count corrections ÷ all movements | Inventory record accuracy; each correction is a defect |
+| Pareto of count errors | units corrected by SKU, sorted, with cumulative % | The few items causing most of the errors |
+| Dead stock | stock on hand with no sale in 60 days | Overstock waste tying up cash and space |
+| Turns per year | annualized units sold ÷ average units on hand | How hard inventory is working |
+
+Lead time and service level (90% to 99%) are adjustable in the tab, and one click applies the suggested reorder points.
+
+![Control chart](docs/control-chart.png)
+
+To try it with realistic history, load 90 days of demo data (this replaces the current database):
+
+```bash
+python seed_demo.py --reset
+```
 
 ## Guardrails
 
